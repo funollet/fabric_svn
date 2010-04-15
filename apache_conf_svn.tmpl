@@ -1,0 +1,27 @@
+<Location /svn/%(repository)s>
+        DAV svn
+        SVNPath /home/svn/%(repository)s
+        SVNPathAuthz off
+
+        AuthBasicAuthoritative Off
+
+        AuthType Basic
+        AuthName "MTG Subversion"
+        # PAM authentication.
+        AuthPAM_Enabled on
+        AuthPAM_FallThrough off
+        # Passwordfile authentication.
+        # Don't tell me "could not open user file", please.
+        AuthUserFile /dev/null
+        #AuthUserFile /etc/apache2/passwd/svn_%(repository)s.passwd
+
+        <LimitExcept GET PROPFIND OPTIONS REPORT>
+		    # Users with write rights (not read-write)
+		    Require user nobody
+        </LimitExcept>
+        <Limit GET PROPFIND OPTIONS REPORT>
+		    # Users with read rights.
+		    #Allow from all
+		    Require user nobody
+        </Limit>
+</Location>
