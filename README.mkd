@@ -21,6 +21,7 @@ Available commands:
 Examples of usage:
 
     # fab new:myproject
+    # fab apache:myproject
     # fab changeusers:myproject,"andy bert carl"
 
 Customize values for `env.apache_conf_dir` and `env.root_dir` if your Apache
