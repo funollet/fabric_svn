@@ -46,17 +46,21 @@ def __get_apache_conf_file(repository):
 
     repository:     name of the repository
     """
+    require('apache_conf_dir')
     return os.path.join(env.apache_conf_dir, '%s.conf' % repository)
 
 
 def __apache_restart():
-    """Restart Apache to load new configuration."""
+    """Restart Apache to load new configuration.
+    """
     run("apache2ctl -t")
     run("apache2ctl graceful")
 
 
 def list():
-    """List existing repositories."""
+    """List existing repositories.
+    """
+    require('root_dir')
     run("ls %s" % env.root_dir)
 
 
@@ -65,6 +69,8 @@ def new(repository):
 
     repository:     name of the repository
     """
+
+    require('root_dir')
 
     repos_dir = os.path.join(env.root_dir,repository)
 
