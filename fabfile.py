@@ -46,7 +46,7 @@ def __get_apache_conf_file(repository):
 
     repository:     name of the repository
     """
-    return os.path.join(env.apache_conf_dir, 'svn_%s.conf' % repository)
+    return os.path.join(env.apache_conf_dir, '%s.conf' % repository)
 
 
 def __apache_restart():
