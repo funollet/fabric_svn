@@ -40,8 +40,6 @@ env.root_dir = '/home/svn'
 #env.cvs_frozen_dir = '/home/cvs.migrated'
 
 
-env.hosts = ["root@yucatan.upf.edu"]
-
 
 def __get_apache_conf_file(repository):
     """Return path to the Apache configuration.

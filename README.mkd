@@ -1,0 +1,28 @@
+fabric-svn
+==========
+
+[Fabric][fabric] tasks for managing SVN repositories.
+
+[fabric]: http://fabfile.org/
+
+Creates repositories with a minimal tree; configure Apache to serve repository
+via WebDAV; manages users.
+
+Available commands:
+
+    # fab -l
+
+    apache       Configures Apache to serve a repository.
+    changeusers  Change 'Required users' on Apache configuration.
+    list         List existing repositories.
+    new          Creates repository and commits initial structure.
+    users        List authorized users for a repository.
+
+Examples of usage:
+
+    # fab new:myproject
+    # fab changeusers:myproject,"andy bert carl"
+
+Customize values for `env.apache_conf_dir` and `env.root_dir` if your Apache
+configs / SVN repositories reside on other directories.
+
